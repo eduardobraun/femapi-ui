@@ -1,0 +1,14 @@
+
+query Project ($id: Int!) {
+  project (id: $id) {
+    id,
+    name,
+    members {
+      user {
+        id,
+        name
+      },
+      permission
+    }
+  }
+}

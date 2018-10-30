@@ -1,0 +1,13 @@
+mutation NewProject($name: String!) {
+  newProject(name: $name) {
+    id,
+    name,
+    members {
+      user {
+        id,
+        name
+      },
+      permission
+    }
+  }
+}

@@ -1,0 +1,3 @@
+mutation DeleteProject($pid: Int!) {
+  deleteProject(pid: $pid)
+}

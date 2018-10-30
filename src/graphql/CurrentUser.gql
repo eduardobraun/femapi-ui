@@ -1,0 +1,17 @@
+query CurrentUser {
+  currentUser {
+    id,
+    name,
+    projects {
+      id,
+      name,
+      members {
+        user {
+          id,
+          name
+        },
+        permission
+      }
+    }
+  }
+}
