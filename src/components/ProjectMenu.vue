@@ -38,7 +38,7 @@
               dark
             >
               <v-list-tile-action class="white--text">
-                <v-icon class="fa code">code</v-icon>
+                <v-icon class="fa fa-code"></v-icon>
               </v-list-tile-action>
               <v-list-tile-content class="white--text">
                 <v-list-tile-title>Editor</v-list-tile-title>
