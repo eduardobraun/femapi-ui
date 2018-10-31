@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Login from "./views/Login.vue";
+import CreateUser from "./views/CreateUser.vue";
 
 import UserMenu from "./components/UserMenu.vue";
 import UserSettings from "./components/UserSettings.vue";
@@ -89,6 +90,14 @@ export default new Router({
         public: true
       },
       component: Login
+    },
+    {
+      path: "/signon",
+      name: "signon",
+      meta: {
+        public: true
+      },
+      component: CreateUser
     },
     {
       path: "/about",
