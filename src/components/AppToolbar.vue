@@ -85,9 +85,8 @@ export default {
     },
     logout() {
       const apolloClient = this.$apollo.provider.defaultClient;
-      onLogout(apolloClient).then(() => {
-        this.$router.push({ name: "home" });
-      });
+      onLogout(apolloClient);
+      this.$router.push({ name: "login" });
     }
   }
 };

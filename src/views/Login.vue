@@ -16,7 +16,7 @@
                 </v-form>
               </v-card-text>
               <v-card-actions>
-                <v-btn block color="primary" :to="'signon'" :loading="loading">New User</v-btn>
+                <v-btn block color="primary" :to="'signup'">New User</v-btn>
                 <v-spacer></v-spacer>
                 <v-btn block color="primary" @click="login" :loading="loading">Login</v-btn>
               </v-card-actions>
