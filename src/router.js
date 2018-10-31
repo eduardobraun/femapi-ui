@@ -5,13 +5,6 @@ import Login from "./views/Login.vue";
 import CreateUser from "./views/CreateUser.vue";
 
 import UserMenu from "./components/UserMenu.vue";
-import UserSettings from "./components/UserSettings.vue";
-
-import ProjectMenu from "./components/ProjectMenu.vue";
-import ProjectHome from "./components/ProjectHome.vue";
-import ProjectDashboard from "./components/ProjectDashboard.vue";
-import ProjectEditor from "./components/ProjectEditor.vue";
-import ProjectTasks from "./components/ProjectTasks.vue";
 
 Vue.use(Router);
 
@@ -49,7 +42,8 @@ export default new Router({
       path: "/settings",
       name: "user-settings",
       components: {
-        default: UserSettings,
+        default: () =>
+          import(/* webpackChunkName: "user_settings" */ "@/components/UserSettings.vue"),
         drawer: UserMenu
       },
       beforeEnter: ifAuthenticated
@@ -57,27 +51,32 @@ export default new Router({
     {
       path: "/project",
       components: {
-        default: ProjectHome,
-        drawer: ProjectMenu
+        default: () =>
+          import(/* webpackChunkName: "project_home" */ "@/components/ProjectHome.vue"),
+        drawer: () =>
+          import(/* webpackChunkName: "project_menu" */ "@/components/ProjectMenu.vue")
       },
       props: { default: true, drawer: true },
       children: [
         {
           path: "/",
           name: "projecthome",
-          component: ProjectDashboard,
+          component: () =>
+            import(/* webpackChunkName: "project_dashboard" */ "@/components/ProjectDashboard.vue"),
           beforeEnter: ifAuthenticated
         },
         {
           path: "editor",
           name: "projecteditor",
-          component: ProjectEditor,
+          component: () =>
+            import(/* webpackChunkName: "project_editor" */ "@/components/ProjectEditor.vue"),
           beforeEnter: ifAuthenticated
         },
         {
           path: "/tasks",
           name: "projecttasks",
-          component: ProjectTasks,
+          component: () =>
+            import(/* webpackChunkName: "project_tasks" */ "@/components/ProjectTasks.vue"),
           beforeEnter: ifAuthenticated
         }
       ],
@@ -92,8 +91,8 @@ export default new Router({
       component: Login
     },
     {
-      path: "/signon",
-      name: "signon",
+      path: "/signup",
+      name: "signup",
       meta: {
         public: true
       },
