@@ -6,9 +6,9 @@ import store from "./store";
 import { createProvider } from "./vue-apollo";
 
 import "./theme/default.styl";
-import "@fortawesome/fontawesome-free/js/all.js";
-import "material-design-icons-iconfont/dist/material-design-icons.css";
-import "@mdi/font/css/materialdesignicons.css";
+// import "@fortawesome/fontawesome-free/js/all.js";
+// import "material-design-icons-iconfont/dist/material-design-icons.css";
+// import "@mdi/font/css/materialdesignicons.css";
 import Vuetify from "vuetify";
 import VeeValidate from "vee-validate";
 // eslint-disable-next-line

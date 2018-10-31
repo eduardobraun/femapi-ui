@@ -47,10 +47,8 @@ deploy_staging:
     - export VUE_APP_GRAPHQL_HTTP="$STAGING_API_ADDR"
     - npm run build
 
-    - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no "$STAGING_USER"@"$STAGING_ADDR" docker stop femapi
-    - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no "$STAGING_USER"@"$STAGING_ADDR" rm -rf ~/www
-    - scp -r -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ./dist "$STAGING_USER"@"$STAGING_ADDR":~/www
-    - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no "$STAGING_USER"@"$STAGING_ADDR" docker start femapi
+    - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no "$STAGING_USER"@"$STAGING_ADDR" rm -rf /home/$STAGING_USER/www/*
+    - scp -r -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ./dist/* "$STAGING_USER"@"$STAGING_ADDR":~/www
   environment:
     name: staging
     url: $STAGING_HTTP_ADDR

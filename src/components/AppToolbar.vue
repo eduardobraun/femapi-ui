@@ -23,7 +23,7 @@
           <v-icon large>account_circle</v-icon>
         </v-btn>
         <v-list class="pa-0">
-          <v-list-tile v-for="(item,index) in items" :to="!item.href ? { name: item.name } : null" :href="item.href" @click="item.click" ripple="ripple" :disabled="item.disabled" :target="item.target" rel="noopener" :key="index">
+          <v-list-tile v-for="(item,index) in items" @click="item.click" ripple="ripple" :disabled="item.disabled" :target="item.target" rel="noopener" :key="index">
             <v-list-tile-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
