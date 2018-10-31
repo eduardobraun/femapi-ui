@@ -39,7 +39,7 @@ deploy_staging:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
 
-    - npm run install
+    - npm install
     - export VUE_APP_GRAPHQL_HTTP="$STAGING_API_ADDR"
     - npm run build
 
