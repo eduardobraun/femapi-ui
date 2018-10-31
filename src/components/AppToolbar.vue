@@ -65,13 +65,8 @@ export default {
         },
         {
           icon: "fullscreen_exit",
-          href: "#",
           title: "Logout",
-          click() {
-            const apolloClient = this.$apollo.provider.defaultClient;
-            onLogout(apolloClient);
-            this.$router.push({ name: "home" });
-          }
+          click: this.logout
         }
       ]
     };
@@ -87,6 +82,12 @@ export default {
     },
     handleFullScreen() {
       Util.toggleFullScreen();
+    },
+    logout() {
+      const apolloClient = this.$apollo.provider.defaultClient;
+      onLogout(apolloClient).then(() => {
+        this.$router.push({ name: "home" });
+      });
     }
   }
 };
