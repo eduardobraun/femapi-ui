@@ -44,36 +44,38 @@ export default {
   components: {
     NotificationList
   },
-  data: () => ({
-    items: [
-      {
-        icon: "account_circle",
-        href: "#",
-        title: "Profile",
-        click: e => {
-          console.log(e);
+  data() {
+    return {
+      items: [
+        {
+          icon: "account_circle",
+          href: "#",
+          title: "Profile",
+          click: e => {
+            console.log(e);
+          }
+        },
+        {
+          icon: "settings",
+          href: "#",
+          title: "Settings",
+          click: e => {
+            console.log(e);
+          }
+        },
+        {
+          icon: "fullscreen_exit",
+          href: "#",
+          title: "Logout",
+          click() {
+            const apolloClient = this.$apollo.provider.defaultClient;
+            onLogout(apolloClient);
+            this.$router.push({ name: "home" });
+          }
         }
-      },
-      {
-        icon: "settings",
-        href: "#",
-        title: "Settings",
-        click: e => {
-          console.log(e);
-        }
-      },
-      {
-        icon: "fullscreen_exit",
-        href: "#",
-        title: "Logout",
-        click: () => {
-          const apolloClient = this.$apollo.provider.defaultClient;
-          onLogout(apolloClient);
-          this.$router.push({ name: "home" });
-        }
-      }
-    ]
-  }),
+      ]
+    };
+  },
   computed: {
     toolbarColor() {
       return this.$vuetify.options.extra.mainNav;
