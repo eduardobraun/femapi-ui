@@ -57,12 +57,6 @@ export default {
           const apolloClient = this.$apollo.provider.defaultClient;
           onLogin(apolloClient, token);
           this.loading = false;
-          //localStorage.setItem('user-token', token)
-          // Add the following line:
-          //axios.defaults.headers.common['Authorization'] = token
-          //commit(AUTH_SUCCESS, resp)
-          //dispatch(USER_REQUEST)
-          // resolve(resp);
           this.$router.push({ name: "home" });
           return { token: token };
         })

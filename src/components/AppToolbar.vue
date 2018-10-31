@@ -38,6 +38,7 @@
 <script>
 import NotificationList from "@/components/widgets/list/NotificationList";
 import Util from "@/util";
+import { onLogout } from "../vue-apollo";
 export default {
   name: "app-toolbar",
   components: {
@@ -66,7 +67,9 @@ export default {
         href: "#",
         title: "Logout",
         click: () => {
-          window.getApp.$emit("APP_LOGOUT");
+          const apolloClient = this.$apollo.provider.defaultClient;
+          onLogout(apolloClient);
+          this.$router.push({ name: "home" });
         }
       }
     ]
