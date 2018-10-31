@@ -1,6 +1,10 @@
 # Official docker image.
 image: docker:latest
 
+cache:
+  paths:
+    - node_modules
+
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
