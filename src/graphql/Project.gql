@@ -9,6 +9,36 @@ query Project ($id: Int!) {
         name
       },
       permission
+    },
+    files {
+      name,
+      path,
+      extension,
+      children {
+        name,
+        path,
+        extension,
+        children {
+          name,
+          path,
+          extension,
+          children {
+            name,
+            path,
+            extension,
+            children {
+              name,
+              path,
+              extension,
+              isDir
+            },
+            isDir
+          },
+          isDir
+        },
+        isDir
+      },
+      isDir
     }
   }
 }
