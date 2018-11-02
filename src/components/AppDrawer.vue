@@ -1,7 +1,8 @@
 <template>
   <v-navigation-drawer
     id="appDrawer"
-    :mini-variant.sync="mini"
+    :mini-variant="isMini"
+    mini-variant-width="60"
     fixed
     dark
     app
@@ -33,7 +34,6 @@ export default {
     }
   },
   data: () => ({
-    mini: false,
     drawer: true,
     scrollSettings: {
       maxScrollbarLength: 160
@@ -49,8 +49,13 @@ export default {
 
     sideToolbarColor() {
       return this.$vuetify.options.extra.sideNav;
+    },
+
+    isMini() {
+      return true;
     }
   },
+
   created() {
     window.getApp.$on("APP_DRAWER_TOGGLED", () => {
       this.drawer = !this.drawer;
