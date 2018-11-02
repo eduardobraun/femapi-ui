@@ -68,31 +68,27 @@ export default {
       return this.$store.state.selectedProject;
     },
     items: function() {
-      /*let fix = function(entry) {
+      // Must set file children to undefined
+      // for the v-treeview to work properly
+      function fix(entry) {
         if (entry.isDir) {
-          return {
-            name: entry.name,
-            path: entry.path,
-            extension: entry.extension,
-            children: entry.children.map(entry => {
-              fix(entry);
-            }),
-            isDir: entry.isDir
-          };
+          let children = entry.children.map(child => {
+            return fix(child);
+          });
+
+          return Object.assign({}, entry, {
+            extension: undefined,
+            children: children
+          });
         } else {
-          return {
-            name: entry.name,
-            path: entry.path,
-            extension: entry.extension,
-            children: undefined,
-            isDir: entry.isDir
-          };
+          return Object.assign({}, entry, {
+            children: undefined
+          });
         }
-      };
+      }
       return this.project.files.map(entry => {
-        fix(entry);
-      });*/
-      return this.project ? this.project.files : [];
+        return fix(entry);
+      });
     }
   },
   methods: {}
