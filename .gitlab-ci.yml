@@ -32,6 +32,19 @@ services:
 #   except:
 #     - master
 
+build:master:
+  image: node:8-jessie
+  stage: build
+  artifacts:
+    paths:
+    - dist
+  script:
+    - npm install
+    - export VUE_APP_GRAPHQL_HTTP="$STAGING_API_ADDR"
+    - npm run build
+
+
+
 deploy_staging:
   image: node:8-jessie
   stage: deploy
@@ -42,10 +55,6 @@ deploy_staging:
     - echo "$STAGING_SERVICE_KEY" | tr -d '\r' | ssh-add - > /dev/null
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-
-    - npm install
-    - export VUE_APP_GRAPHQL_HTTP="$STAGING_API_ADDR"
-    - npm run build
 
     - ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no "$STAGING_USER"@"$STAGING_ADDR" rm -rf /home/$STAGING_USER/www/*
     - scp -r -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ./dist/* "$STAGING_USER"@"$STAGING_ADDR":~/www
