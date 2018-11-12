@@ -82,10 +82,7 @@ export function createProvider(options = {}) {
 
 // Manually call this when user log in
 export async function onLogin(apolloClient, token) {
-  console.log("onLogin");
-  console.log("localStorage: ", localStorage, "token: ", token);
   if (typeof localStorage !== "undefined" && token) {
-    console.log("saving token");
     localStorage.setItem(AUTH_TOKEN, token);
   }
   if (apolloClient.wsClient) restartWebsockets(apolloClient.wsClient);

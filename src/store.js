@@ -5,10 +5,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    selectedProject: undefined
+    selectedProject: parseInt(
+      localStorage.getItem("sharefem-selectedProject"),
+      10
+    )
   },
   mutations: {
     selectProject(state, payload) {
+      localStorage.setItem("sharefem-selectedProject", payload.pid);
       state.selectedProject = payload.pid;
     }
   },

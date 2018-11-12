@@ -95,4 +95,6 @@ export default {
     min-height:calc(100vh - 64px - 50px - 81px );  
     height: 100%;
 
+  .v-list__tile 
+    padding: 0 6px !important;
 </style>

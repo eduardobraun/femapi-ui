@@ -73,22 +73,4 @@ export default {
   .caption, .subheading {
     font-weight:200;
   }
-
-  .v-list__tile 
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    color: inherit;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    font-size: 16px;
-    font-weight: 400;
-    height: 48px;
-    margin: 0;
-    padding: 0 6px;
-    position: relative;
-    text-decoration: none;
-    -webkit-transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
-    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 </style>
