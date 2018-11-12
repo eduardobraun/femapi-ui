@@ -5,10 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    selectedProject: parseInt(
-      localStorage.getItem("sharefem-selectedProject"),
-      10
-    )
+    selectedProject: localStorage.getItem("sharefem-selectedProject")
   },
   mutations: {
     selectProject(state, payload) {

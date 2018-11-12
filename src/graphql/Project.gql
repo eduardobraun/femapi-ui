@@ -1,5 +1,5 @@
 
-query Project ($id: Int!) {
+query Project ($id: String!) {
   project (id: $id) {
     id,
     name,
