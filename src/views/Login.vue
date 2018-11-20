@@ -45,7 +45,7 @@ export default {
     login() {
       this.loading = true;
       let loginData = {
-        email: this.model.username,
+        username: this.model.username,
         password: this.model.password
       };
       axios({
