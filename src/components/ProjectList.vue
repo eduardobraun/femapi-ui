@@ -140,9 +140,11 @@ export default {
       await this.$apollo.mutate({
         mutation: NEW_PROJECT,
         variables: {
-          name: data.name
+          name: data.name,
+          template: "shortestpath"
         }
       });
+      this.data.name = "";
       this.$apollo.queries.currentUser.refetch();
       this.dialog = false;
     },

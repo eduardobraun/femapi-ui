@@ -1,5 +1,5 @@
-mutation NewProject($name: String!) {
-  newProject(name: $name) {
+mutation NewProject($name: String!, $template: String!) {
+  newProject(name: $name, template: $template) {
     id,
     name,
     members {

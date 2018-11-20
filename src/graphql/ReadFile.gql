@@ -1,0 +1,5 @@
+query ReadFile ($id: String!, path: String!) {
+  readFile (id: $id, path: $path) {
+    readFile,
+  }
+}
