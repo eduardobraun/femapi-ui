@@ -49,7 +49,7 @@ export default {
         password: this.model.password
       };
       axios({
-        url: "api/login",
+        url: "api/signin",
         data: loginData,
         method: "POST"
       })

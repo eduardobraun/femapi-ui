@@ -11,10 +11,10 @@
                   <h1 class="flex my-4 primary--text">Create New User</h1>
                 </div>                
                 <v-form>
-                  <v-text-field append-icon="person" name="name" label="Name" type="text" v-model="model.name"></v-text-field>
-                  <v-text-field append-icon="person" name="login" label="Login" type="text" v-model="model.login"></v-text-field>
+                  <v-text-field append-icon="person" name="name" label="Email" type="text" v-model="model.email"></v-text-field>
+                  <v-text-field append-icon="person" name="login" label="User Name" type="text" v-model="model.username"></v-text-field>
                   <v-text-field append-icon="lock" name="password" label="Password" id="password" type="password" v-model="model.password"></v-text-field>
-                  <v-text-field append-icon="lock" name="password" label="Password" id="password_confirmation" type="password" v-model="model.password_confirmation"></v-text-field>
+                  <v-text-field append-icon="lock" name="password" label="Password" id="password_confirmation" type="password" v-model="model.confirm_password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -36,10 +36,10 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      name: "",
-      login: "",
+      username: "",
+      email: "",
       password: "",
-      password_confirmation: ""
+      confirm_password: ""
     }
   }),
 
@@ -47,12 +47,13 @@ export default {
     create_user() {
       this.loading = true;
       let userData = {
-        name: this.model.name,
-        email: this.model.login,
-        password: this.model.password
+        username: this.model.username,
+        email: this.model.email,
+        password: this.model.password,
+        confirm_password: this.model.confirm_password
       };
       axios({
-        url: "api/create_user",
+        url: "api/signup",
         data: userData,
         method: "POST"
       })
