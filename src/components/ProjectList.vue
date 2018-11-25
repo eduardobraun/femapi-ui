@@ -144,7 +144,7 @@ export default {
           template: "shortestpath"
         }
       });
-      this.data.name = "";
+      this.name = "";
       this.$apollo.queries.currentUser.refetch();
       this.dialog = false;
     },
