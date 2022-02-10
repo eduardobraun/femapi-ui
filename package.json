@@ -35,7 +35,7 @@
     "lodash.truncate": "^4.4.2",
     "material-design-icons": "^3.0.1",
     "material-design-icons-iconfont": "^3.0.3",
-    "node-sass": "^4.10.0",
+    "node-sass": "^7.0.0",
     "nprogress": "^0.2.0",
     "sass-loader": "^7.0.1",
     "stylus": "^0.54.5",
